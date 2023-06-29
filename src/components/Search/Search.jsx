@@ -12,7 +12,7 @@ const Search = () => {
   const classes = useStyles()
   const [query, setQuery] = useState('')
   const dispatch = useDispatch()
-  console.log('search')
+  const location = useLocation()
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
@@ -20,6 +20,8 @@ const Search = () => {
       dispatch(searchMovie(query))
     }
   }
+
+  if (location.pathname !== '/') return null
 
   return (
     <div className={classes.searchContainer}>
